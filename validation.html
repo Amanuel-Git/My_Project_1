@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+    <script>
+        function validateForm() {
+
+            var name = document.myForm.name.value;
+            var age = document.myForm.age.value;
+            var email = document.myForm.email.value;
+            var password = document.myForm.password.value;
+            var confirmPassword = document.myForm.cpassword.value;
+            var country = document.myForm.country.value;
+
+            // 1. Empty field check
+            if (name == "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+
+            // 2. Alphabet-only check
+            if (!isNaN(name)) {
+                alert("Name must contain only letters");
+                return false;
+            }
+
+            // 3. Numeric check
+            if (age == "" || isNaN(age)) {
+                alert("Age must be a number");
+                return false;
+            }
+
+            // 4. Email format check
+            if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+                alert("Please enter a valid email");
+                return false;
+            }
+
+            // 5. Password length check
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+            // 6. Password match check
+            if (password != confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            // 7. Dropdown selection check
+            if (country == "-1") {
+                alert("Please select your country");
+                return false;
+            }
+
+            alert("Form validated successfully!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Student Registration Form</h2>
+
+    <form name="myForm" onsubmit="return validateForm()">
+        Name: <input type="text" name="name"><br><br>
+        Age: <input type="text" name="age"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        Confirm Password: <input type="password" name="cpassword"><br><br>
+
+        Country:
+        <select name="country">
+            <option value="-1">Select Country</option>
+            <option value="ET">Ethiopia</option>
+            <option value="KE">Kenya</option>
+            <option value="SD">Sudan</option>
+        </select><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <form name="myForm" ;">
+Name: <input type="text" name="Name" /></br>
+EMail: <input type="text" name="EMail" /></br></br>
+Country:<select name="Country">
+<option value="-1" selected>[choose yours]</option>
+<option value="1">Ethiopia</option>
+<option value="2">Sudan</option>
+<option value="3">Kenya</option>
+</select> </br></br></br>
+<input type="submit" value="Submit" >
+</form>
+<script>
+    var a, b, c, num1, num2, sum;
+    a= prompt("Enter first number: ");
+    b= prompt("Enter second number: ");
+    if(a=="" || b===""){
+        alert("Please enter valid numbers");
+    }
+  else{
+    alert("wellcome" + a +"your age is"+ b);
+    alert("wellcome" + a +"your age is"+ b);
+    }
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Popup Boxes</title>
+    <script>
+        function showPopups() {
+
+            // 1. Alert box
+            alert("Welcome! This is an alert box.");
+
+            // 2. Confirm box
+            var choice = confirm("Do you want to continue?");
+            if (choice) {
+                alert("You clicked OK");
+            } else {
+                alert("You clicked Cancel");
+            }
+
+            // 3. Prompt box
+            var name = prompt("Enter your name:");
+            if (name != null) {
+                alert("Hello " + name);
+            } else {
+                alert("No name entered");
+            }
+        }
+       function person(firstname, lastname, age){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this. changeFirstName = function (name){ this.firstname = name ;};
+	}
+	var person1=new person("Narendra","Modi",50);
+	person1.changeFirstName("NAMO");
+	alert(person1.firstname +" "+ person1.lastname);
+
+
+        
+
+    </script>
+</head>
+
+<body>
+    <h2>JavaScript Popup Box Example</h2>
+    <input type="button" value="Show Popups" onclick="showPopups()">
+</body>
+</html>

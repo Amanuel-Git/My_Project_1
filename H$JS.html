@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id ="demo">what is the day to day and also the time as well</p>
+    <script>
+        var a= new Date();
+        if(a.getHours()<18){
+            document.write("Good morning Amanuel I wish you a nice day! ");
+        }
+        else{
+            document.write("Good evening Amanuel I wish you a nice night! ");
+        }
+        var car = ["BMW", "Volvo", "Saab", "Ford"];
+        var text= "";
+        document.write("<br>"+car);
+        for(var i=0;i<car.length;i++){
+            text += car[i] + " , ";
+        }
+       </script>
+    <table><script> 
+        for(var j=1;j<=5;j++){
+            document.write("<tr>");
+            for(var k=1;k<=5;k++){
+                document.write("<td>"+j +"," + k+"</td>");
+            }
+            document.write("</tr><br>");
+        }
+    </script>
+    </table>
+    <script>
+        var d = 1;
+        while(d<=5){
+            document.write("<br> The number is " + d);
+            d++;
+        }
+        do{
+            document.write("<br> The number is " + d);
+            d++;
+        }while(d<=10);
+        
+    </script>
+     <form> <input type="button" value="hello world" onclick = "document.write(new Date())"> </form>
+                
+</body>
+</html>

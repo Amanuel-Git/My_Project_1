@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Justice Bureau System</title>
+
+  <style>
+    body { font-family: Arial; background: #f2f2f2; }
+    .page { display: none; padding: 20px; }
+    .active { display: block; }
+    button { padding: 8px; margin: 5px; }
+  </style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="login" class="page active">
+  <h2>Login</h2>
+  <input id="user" placeholder="Username" value = "Amanuel">
+  <input id="pass" type="password" placeholder="Password" value="Amn/1221">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div id="dashboard" class="page">
+  <h2>Dashboard</h2>
+  <button onclick="showPage('cases')">Court Cases</button>
+  <button onclick="showPage('erp')">ERP</button>
+</div>
+
+<!-- CASE MANAGEMENT -->
+<div id="cases" class="page">
+  <h2>Case Management</h2>
+  <button onclick="showPage('dashboard')">Back</button>
+</div>
+
+<!-- ERP -->
+<div id="erp" class="page">
+  <h2>ERP System</h2>
+  <button onclick="showPage('dashboard')">Back</button>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function login() {
+    let u = user.value;
+    let p = pass.value;
+
+    if (u === "admin" && p === "1234") {
+      showPage('dashboard');
+    } else {
+      alert("Invalid login");
+    }
+  }
+</script>
+
+</body>
+</html>

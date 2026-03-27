@@ -1,0 +1,210 @@
+import java.util.Scanner;
+
+/* =======================
+   INTERFACE (Behavior)
+   ======================= */
+interface Registrable {
+    void register();
+}
+
+/* =======================
+   ABSTRACT CLASS
+   ======================= */
+abstract class Education {
+    protected String name;
+
+    public Education(String name) {
+        this.name = name;
+    }
+
+    public String getName() {   // Encapsulation
+        return name;
+    }
+
+    public abstract void displayInfo();
+}
+
+/* =======================
+   DEPARTMENT CLASS
+   ======================= */
+class Department {
+    private String name;
+
+    public Department(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+/* =======================
+   FACULTY CLASS
+   ======================= */
+class Faculty {
+    private String name;
+
+    public Faculty(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+/* =======================
+   COURSE CLASS
+   ======================= */
+class Course {
+    private String name;
+    private String code;
+    private int creditHour;
+
+    public Course(String name, String code, int creditHour) {
+        this.name = name;
+        this.code = code;
+        this.creditHour = creditHour;
+    }
+
+    public void displayInfo() {
+        System.out.println("   " + code + " - " + name + " (" + creditHour + " CH)");
+    }
+}
+
+/* =======================
+   STUDENT CLASS
+   ======================= */
+class Student extends Education implements Registrable {
+
+    private int age;
+    private String sex;
+    private int id;
+    private int year;
+
+    private Department department;
+    private Faculty faculty;
+    private Course[] courses;
+    private int courseCount = 0;
+
+    public Student(String name, int age, String sex, int id, int year,
+                   Department department, Faculty faculty, int c) {
+        super(name);
+        this.age = age;
+        this.sex = sex;
+        this.id = id;
+        this.year = year;
+        this.department = department;
+        this.faculty = faculty;
+        this.courses = new Course[c];
+    }
+
+    public void addCourse(Course d) {
+        if (courseCount < courses.length) {
+            courses[courseCount] = d;
+            courseCount++;
+        }
+    }
+
+    @Override
+    public void register() {
+        System.out.println("Student " + name + " registered successfully.");
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("\nStudent Name: " + name);
+        System.out.println("ID: " + id);
+        System.out.println("Age: " + age);
+        System.out.println("Sex: " + sex);
+        System.out.println("Year: " + year);
+        System.out.println("Department: " + department.getName());
+        System.out.println("Faculty: " + faculty.getName());
+        System.out.println("Courses:");
+        for (int i = 0; i < courseCount; i++) {
+            courses[i].displayInfo();
+        }
+    }
+}
+
+/* =======================
+   MAIN CLASS
+   ======================= */
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter number of students: ");
+            int n = scanner.nextInt();
+
+            System.out.print("Enter number of courses per student: ");
+            int c = scanner.nextInt();
+            scanner.nextLine(); // clear buffer
+
+            Student[] students = new Student[n];
+
+            for (int i = 0; i < n; i++) {
+                System.out.println("\n--- Student " + (i + 1) + " ---");
+
+                System.out.print("Name: ");
+                String name = scanner.nextLine();
+
+                System.out.print("Age: ");
+                int age = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Sex: ");
+                String sex = scanner.nextLine();
+
+                System.out.print("ID: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Year: ");
+                int year = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Faculty Name: ");
+                Faculty fac = new Faculty(scanner.nextLine());
+
+                System.out.print("Department Name: ");
+                Department dept = new Department(scanner.nextLine());
+
+                students[i] = new Student(name, age, sex, id, year, dept, fac, c);
+                students[i].register();
+
+                for (int j = 0; j < c; j++) {
+                    System.out.println(" Course " + (j + 1));
+
+                    System.out.print("Course Name: ");
+                    String cname = scanner.nextLine();
+
+                    System.out.print("Course Code: ");
+                    String code = scanner.nextLine();
+
+                    System.out.print("Credit Hour: ");
+                    int ch = scanner.nextInt();
+                    scanner.nextLine();
+
+                    students[i].addCourse(new Course(cname, code, ch));
+                }
+            }
+
+            System.out.println("\n===== STUDENT DETAILS =====");
+            for (int i = 0; i < n; i++) {
+                students[i].displayInfo();
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Numeric input required!");
+        } catch (Exception e) {
+            System.out.println("Unexpected error: " + e.getMessage());
+        } finally {
+            scanner.close();
+            System.out.println("\nSystem Closed.");
+        }
+    }
+}
