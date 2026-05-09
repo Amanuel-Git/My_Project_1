@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<br><br>
+
+<button type ="button" onclick="calculate('+')">sum</button>
+<button type ="button" onclick="calculate('-')">sub</button>
+<button type ="button" onclick="calculate('*')">mul</button>
+<button type ="button" onclick="calculate('/')">div</button>
+
+<p id="result"></p>
+
+<script>
+function calculate(op) {
+    let a = Number(prompt("enter the first number"));
+    let b = Number ( prompt("enter the second number:"));
+    let res;
+
+    if (op === '+') res = a + b;
+    else if (op === '-') res = a - b;
+    else if (op === '*') res = a * b;
+    else if (op === '/') res = b !== 0 ? a / b : "Cannot divide by zero";
+
+    document.getElementById("result").innerText = "Result: " + res;
+}
+</script>
+<div class="date"><input type="date">
+<button>calculator</button>
+</div>
+</body>
+</html>

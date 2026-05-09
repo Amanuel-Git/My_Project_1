@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS & HTML5 Concepts Demo</title>
+
+  <!-- CSS STYLE SHEET -->
+  <style>
+    /* Element selector */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* ID selector */
+    #page-header {
+      background-color: #333333;
+      color: white;
+      padding: 15px;
+    }
+
+    /* Class selector */
+    .box {
+      width: 250px;
+      padding: 10px;
+      margin: 15px;
+      border-width: 5px;
+      background-color: white;
+    }
+
+    /* Border styles */
+    .inset {
+      border-style: inset;
+    }
+
+    .outset {
+      border-style: outset;
+    }
+
+    .groove {
+      border-style: groove;
+    }
+
+    .ridge {
+      border-style: ridge;
+    }
+
+    nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    section {
+      padding: 15px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    mark {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="page-header">
+    <h1>HTML5 & CSS Demo</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Articles</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- ARTICLE -->
+    <article>
+      <section>
+        <h2>CSS Box Model & Borders</h2>
+        <p>This paragraph explains the <mark>CSS Box Model</mark>.</p>
+
+        <div class="box inset">Inset Border</div>
+        <div class="box outset">Outset Border</div>
+        <div class="box groove">Groove Border</div>
+        <div class="box ridge">Ridge Border</div>
+      </section>
+    </article>
+
+    <!-- ASIDE -->
+    <aside>
+      <p><strong>Note:</strong> Borders are part of the CSS box model.</p>
+    </aside>
+
+    <!-- FIGURE -->
+    <section>
+      <figure>
+        <img src="https://via.placeholder.com/200" alt="Sample Image">
+        <figcaption>Example Image with Caption</figcaption>
+      </figure>
+    </section>
+
+    <!-- DETAILS & SUMMARY -->
+    <section>
+      <details>
+        <summary>Click to see more details</summary>
+        <p>This content is hidden until clicked.</p>
+      </details>
+    </section>
+
+    <!-- AUDIO -->
+    <section>
+      <h3>Audio Example</h3>
+      <audio controls>
+        <source src="sample.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+      </audio>
+    </section>
+
+    <!-- VIDEO -->
+    <section>
+      <h3>Video Example</h3>
+      <video controls width="300">
+        <source src="sample.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </section>
+
+    <!-- TIME -->
+    <section>
+      <p>Published on: <time datetime="2026-01-10">January 10, 2026</time></p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Web Programming Course</p>
+  </footer>
+
+</body>
+</html>
